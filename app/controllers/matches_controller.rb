@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
  # or the user 1 has to delete user2 match relation from match menu?
   def index
     matches = Match.all
-    render json: matches
+    render json: @matches
   end
 
   def create
@@ -13,7 +13,7 @@ class MatchesController < ApplicationController
   end
 
   def delete
-    match = Match.find(params[:id])
+    match = Match.find_by(id: params[:id])
     match.delete
   end
   

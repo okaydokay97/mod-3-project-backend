@@ -1,7 +1,7 @@
 class RejectsController < ApplicationController
   def index
     rejects = Reject.all
-    render json: rejects
+    render json: @rejects
   end
 
   def create
