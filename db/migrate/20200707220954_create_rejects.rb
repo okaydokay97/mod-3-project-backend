@@ -1,8 +1,8 @@
 class CreateRejects < ActiveRecord::Migration[6.0]
   def change
     create_table :rejects do |t|
-      t.refrences :user_id
-      t.refrences :user_id
+      t.references :user_one
+      t.references :user_two
 
       t.timestamps
     end
