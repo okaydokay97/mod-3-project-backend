@@ -13,20 +13,20 @@
 ActiveRecord::Schema.define(version: 2020_07_07_220954) do
 
   create_table "matches", force: :cascade do |t|
-    t.integer "user_one_id"
+    t.integer "user_id"
     t.integer "user_two_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_one_id"], name: "index_matches_on_user_one_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
     t.index ["user_two_id"], name: "index_matches_on_user_two_id"
   end
 
   create_table "rejects", force: :cascade do |t|
-    t.integer "user_one_id"
+    t.integer "user_id"
     t.integer "user_two_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_one_id"], name: "index_rejects_on_user_one_id"
+    t.index ["user_id"], name: "index_rejects_on_user_id"
     t.index ["user_two_id"], name: "index_rejects_on_user_two_id"
   end
 
@@ -41,4 +41,6 @@ ActiveRecord::Schema.define(version: 2020_07_07_220954) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "matches", "users"
+  add_foreign_key "rejects", "users"
 end
