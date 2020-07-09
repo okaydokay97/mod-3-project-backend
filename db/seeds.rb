@@ -15,10 +15,10 @@ email = Faker::Internet.email
 bio_quote = Faker::Quote.famous_last_words
 age = Faker::Number.between(from: 18, to: 70)
 gender = Faker::Gender.binary_type
-img_url = Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{gender}"])
+img_url = Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{gender} human"])
 
-15.times{ User.create(name: Faker::Name.first_name, email: Faker::Internet.email, bio: Faker::Quote.famous_last_words, gender: Faker::Gender.binary_type, age: Faker::Number.between(from: 18, to: 70), img_url: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{Faker::Gender.binary_type}"])) }
+15.times{ User.create(name: Faker::Name.first_name, email: Faker::Internet.email, bio: Faker::Quote.famous_last_words, gender: Faker::Gender.binary_type, age: Faker::Number.between(from: 18, to: 70), img_url: Faker::LoremFlickr.image(size: "300x300", search_terms: ["#{Faker::Name.first_name}"])) }
 
-5.times { Match.create(user: User.all.sample, user_two: User.all.sample)}
+45.times { Match.create(user: User.all.sample, user_two: User.all.sample)}
 
-5.times { Reject.create(user: User.all.sample, user_two: User.all.sample)}
+45.times { Reject.create(user: User.all.sample, user_two: User.all.sample)}
