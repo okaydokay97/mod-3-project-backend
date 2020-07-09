@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     render json: user
   end
 
+
   def create
     user = User.find_or_create_by(name: params[:username])
     potentials = User.where(gender: "Male")
